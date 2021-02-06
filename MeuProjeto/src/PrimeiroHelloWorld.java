@@ -14,6 +14,8 @@ public class PrimeiroHelloWorld {
 //        boolean resultado = numero2 < numero1;
 //        System.out.println(numero1 + " é maior que "+numero2 +"? " + resultado );
 
+        System.out.println("Hello world");
+
 
     }
 }

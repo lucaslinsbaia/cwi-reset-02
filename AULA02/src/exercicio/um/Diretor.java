@@ -10,4 +10,8 @@ public class Diretor {
         this.idade = idade;
         this.quantidadeDeFilmes = quantidadeDeFilmes;
     }
+
+    public String getNome() {
+        return nome;
+    }
 }

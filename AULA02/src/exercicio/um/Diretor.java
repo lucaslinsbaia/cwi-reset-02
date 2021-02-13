@@ -19,8 +19,8 @@ public class Diretor {
 
     public void imprimirDiretor() {
         System.out.println("Dados do Diretor");
-        System.out.println("Nome; " + nome);
-        System.out.println("Idade; " + idade);
-        System.out.println("Gênero; " + genero);
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Gênero: " + genero.getGenero());
     }
 }

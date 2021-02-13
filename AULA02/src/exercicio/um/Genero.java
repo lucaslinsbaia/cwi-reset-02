@@ -12,5 +12,7 @@ public enum Genero {
 
     }
 
-
+    public String getGenero() {
+        return genero;
+    }
 }

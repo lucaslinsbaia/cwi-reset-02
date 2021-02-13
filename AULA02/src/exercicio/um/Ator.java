@@ -15,8 +15,8 @@ public class Ator {
 
     public void imprimeAtor() {
         System.out.println("Dados do Ator");
-        System.out.println("Nome; " + nome);
-        System.out.println("Idade; " + idade);
-        System.out.println("Gênero; " + genero);
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Gênero: " + genero.getGenero());
     }
 }

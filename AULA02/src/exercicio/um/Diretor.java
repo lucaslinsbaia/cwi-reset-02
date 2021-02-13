@@ -10,7 +10,7 @@ public class Diretor {
         this.nome = nome;
         this.idade = idade;
         this.quantidadeDeFilmes = quantidadeDeFilmes;
-        this.genero = genero.getGenero();
+        this.genero = genero;
     }
 
     public String getNome() {
@@ -18,6 +18,7 @@ public class Diretor {
     }
 
     public void imprimirDiretor() {
+        System.out.println("Dados do Diretor");
         System.out.println("Nome; " + nome);
         System.out.println("Idade; " + idade);
         System.out.println("Gênero; " + genero);

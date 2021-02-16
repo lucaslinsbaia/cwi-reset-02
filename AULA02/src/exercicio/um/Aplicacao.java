@@ -14,12 +14,9 @@ public class Aplicacao {
 
 
             filme1.reproduzirFilme();
-            System.out.println("-----------");
-            leoDiCaprio.imprimeAtor();
-            System.out.println("-----------");
+            leoDiCaprio.imprimeDados();
             filme2.reproduzirFilme();
-            System.out.println("-----------");
-            alberto.imprimirDiretor();
-            System.out.println("-----------");
+            alberto.imprimeDados();
+
         }
     }

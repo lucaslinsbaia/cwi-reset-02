@@ -17,10 +17,12 @@ public class Filme {
         this.diretor = diretor;
     }
 
+
+
     public void reproduzirFilme() {
         System.out.println("Nome do filme: "+ this.titulo);
         System.out.println("Sinopse: "+ this.descricao);
-        System.out.println("Duração: "+ this.duracao + "m");
+        System.out.println("Duração: "+ this.duracao + "min");
         System.out.println("Direção: "+ this.diretor.getNome());
     }
 }

@@ -1,22 +1,16 @@
 package exercicio.um;
 
-public class Ator {
+public class Ator extends Pessoa {
    private String nome;
    private int idade;
    private int oscarsVencidos;
    private Genero genero;
 
    public Ator(String nome, int idade, int oscarsVencidos, Genero genero) {
-       this.nome = nome;
-       this.idade = idade;
+       super(nome, idade, genero);
        this.oscarsVencidos = oscarsVencidos;
-       this.genero = genero;
     }
 
-    public void imprimeAtor() {
-        System.out.println("Dados do Ator");
-        System.out.println("Nome: " + nome);
-        System.out.println("Idade: " + idade);
-        System.out.println("Gênero: " + genero.getGenero());
-    }
+
+
 }

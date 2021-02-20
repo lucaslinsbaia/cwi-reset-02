@@ -1,21 +1,27 @@
+import java.text.DecimalFormat;
+
 public class Imovel {
-    private String enderecoImovel;
-    private Double valorImovel;
+    private Endereco endereco;
+    private Double valor;
 
-    public Imovel(String enderecoImovel, Double valorImovel) {
-        this.enderecoImovel = enderecoImovel;
-        this.valorImovel = valorImovel;
+    public Imovel(Endereco endereco, Double valor) {
+        this.endereco = endereco;
+        this.valor = valor;
     }
 
-    public String getEnderecoImovel() {
-        return enderecoImovel;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public double getValorImovel() {
-        return valorImovel;
+    public double getValor() {
+        return valor;
     }
 
-    public String void apresentacao() {
-        System.out.println("imóvel localizado no endereço " + enderecoImovel + ". Valor: R$ " + valorImovel);
+    public String apresentacao() {
+    return String.format("Imóvel localizado na Rua %s, número %d, no bairro %s, cidade de %s / %s. " +
+            "Valor do imóvel: %s", endereco.getLogradouro(), endereco.getNumero(), endereco.getBairro(),
+            endereco.getCidade(), endereco.getEstado(), DecimalFormat.getCurrencyInstance().format(getValor()));
+
     }
 }
+

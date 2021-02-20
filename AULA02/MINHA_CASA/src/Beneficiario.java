@@ -1,17 +1,17 @@
 public class Beneficiario {
-    private String nomeBeneficiario;
-    private Double salarioBeneficiario;
+    private String nome;
+    private Double salario;
 
-    public Beneficiario(String nomeBeneficiario, Double salarioBeneficiario) {
-        this.nomeBeneficiario = nomeBeneficiario;
-        this.salarioBeneficiario = salarioBeneficiario;
+    public Beneficiario(String nome, Double salario) {
+        this.nome = nome;
+        this.salario = salario;
     }
 
     public String getNome() {
-        return nomeBeneficiario;
+        return nome;
     }
 
     public Double getSalario() {
-        return salarioBeneficiario;
+        return salario;
     }
 }

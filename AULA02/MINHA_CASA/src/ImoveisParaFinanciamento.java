@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ImoveisParaFinanciamento {
+
+
+    private static final Double VALOR_MINIMO_IMOVEL = 50000.0;
+    private static final Double VALOR_MAXIMO_IMOVEL = 1000000.0;
     private List<Imovel> imoveis;
 
     public ImoveisParaFinanciamento() {
@@ -25,29 +29,28 @@ public class ImoveisParaFinanciamento {
         // se "imovel" corresponder às regras, adicioná-lo à lista "imoveis" com o seguinte código:
         //    imoveis.add(imovel);
 
-        if(imovel.getValorImovel() >= 50000 && imovel.getValorImovel()<=1000000) {
+        if(imovel.getValor() >= VALOR_MINIMO_IMOVEL && imovel.getValor()<=VALOR_MAXIMO_IMOVEL) {
             imoveis.add(imovel);
         } else {
-            System.out.println(" > Atenção, problema de registro! Imóveis com valor R$ XXX não são aceitos no programa.");
+            System.out.println(" > Atenção, problema de registro! Imóveis com valor R$" + imovel.getValor() + " não são aceitos no programa.");
         }
     }
 
     /**
      * Retorna opções de financiamento cujo valor do imóvel seja inferior ou igual ao valor limite que foi informado.
      */
-    public List<Imovel> buscarOpcoes(double valorLimite) {
+    public List<Imovel> buscarOpcoes(Double valorLimite) {
 
         List<Imovel> opcoes = new ArrayList<>();
 
         // percorre a lista de imóveis
         for (Imovel imovel : imoveis) {
-
-
             // se "imovel" corresponder às regras, adicioná-lo à lista de opcoes com o seguinte código:
             //    opcoes.add(imovel);
-            if(imovel == imoveis[]) {
-                opcoes.add(imovel);|
+            if (imovel.getValor() <= valorLimite) {
+                opcoes.add(imovel);
             }
+
         }
 
         return opcoes;

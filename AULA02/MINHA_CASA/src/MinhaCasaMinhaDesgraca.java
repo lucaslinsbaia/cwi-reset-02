@@ -18,6 +18,19 @@ public class MinhaCasaMinhaDesgraca {
          *
          * NÃO MODIFICAR ESTA CLASSE ANTES DESTA LINHA.
          */
+        Endereco franciscaDeOliveira = new Endereco("Estrada Francisca de Oliveira", 857, "-","Belém Velho", "Porto Alegre", UnidadeFederativa.RS);
+        Imovel imovel1 = new Imovel (franciscaDeOliveira,150000.0);
+        Endereco capistranos = new Endereco("Estrada dos Capistranos", 528, "Casa 1","Aberta dos Morros", "Porto Alegre", UnidadeFederativa.RS);
+        Imovel imovel2 = new Imovel (capistranos, 1000000.0);
+        Endereco rioDeJaneiro = new Endereco("Rua Santa Clara", 230, "Apartamento 5","Copacabana", "Rio de Janeiro", UnidadeFederativa.RJ);
+        Imovel imovel3 = new Imovel (rioDeJaneiro, 120000.0);
+        Endereco sampa = new Endereco("Avenida Faria Lima", 1235, "Apartamento 350", "Jardim Paulista", "São Paulo", UnidadeFederativa.SP);
+        Imovel imovel4 = new Imovel (sampa, 350000.0);
+
+        opcoesParaFinanciamento.registrarImovel(imovel1);
+        opcoesParaFinanciamento.registrarImovel(imovel2);
+        opcoesParaFinanciamento.registrarImovel(imovel3);
+        opcoesParaFinanciamento.registrarImovel(imovel4);
 
         /**
          * FIM

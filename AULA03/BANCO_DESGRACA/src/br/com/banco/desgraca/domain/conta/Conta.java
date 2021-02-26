@@ -8,8 +8,11 @@ import br.com.banco.desgraca.exception.DataInvalidaException;
 import br.com.banco.desgraca.exception.DepositoInvalidoException;
 import br.com.banco.desgraca.exception.SaldoInsuficienteException;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -67,6 +70,7 @@ public abstract class Conta implements ContaBancaria{
         String valorFormatado = DecimalFormat.getCurrencyInstance().format(valor);
         Double valorAposDeposito = (getSaldo() + valor);
         System.out.println(TipoTransacao.DEPOSITO.getTipoTransacao() + valorFormatado + " na " + this.toString());
+        transacao.add(new Transacao(TipoTransacao.DEPOSITO, Data.getDataTransacao(), valor));
         setSaldo(valorAposDeposito);
         Data.getDataTransacao();
     }
@@ -149,7 +153,12 @@ public abstract class Conta implements ContaBancaria{
             throw new DataInvalidaException("Parâmeteros incorretos — data final precisa ser posterior à data inicial");
         } else {
             for (Transacao transacao : transacao) {
-                System.out.println(transacao.getTipoTransacao().getSinalTransacao() + "   " + transacao.getValorTransacao() +"   " + transacao.getDataTransacao());
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                String dataFormatada = transacao.getDataTransacao().format(formatter);
+
+                System.out.println(transacao.getTipoTransacao().getSinalTransacao() + "\t"
+                        + DecimalFormat.getCurrencyInstance().format(transacao.getValorTransacao()) +"\t"
+                        + dataFormatada);
             }
         }
 

@@ -24,6 +24,8 @@ public class BancoDaDesgraca {
         System.out.println();
         c1.transferir(200.0, c3);
         System.out.println();
+        c1.depositar(1500.0);
+        System.out.println();
         c3.transferir(250.0, c2);
         System.out.println();
         System.out.println();

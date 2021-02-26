@@ -1,68 +1,29 @@
 package br.com.banco.desgraca.domain.conta;
 
-import br.com.banco.desgraca.Data;
 import br.com.banco.desgraca.domain.InstituicaoBancaria;
-import br.com.banco.desgraca.domain.TipoTransacao;
-import br.com.banco.desgraca.exception.ContaDigitalValorMinimoException;
-import br.com.banco.desgraca.exception.SaldoInsuficienteException;
+import br.com.banco.desgraca.exception.ContaDigitalException;
+import br.com.banco.desgraca.exception.ValorMinimoException;
 
 
-
-import java.text.DecimalFormat;
-
-
-public class ContaDigital extends ContasBancarias {
+public class ContaDigital extends Conta {
 
     public ContaDigital(TiposDeContaBancaria tiposDeContaBancaria, InstituicaoBancaria instituicaoBancaria, Integer numeroDeContaCorrente, Double saldo) {
         super(tiposDeContaBancaria, instituicaoBancaria, numeroDeContaCorrente, saldo);
-    }
+        if (instituicaoBancaria.equals(InstituicaoBancaria.BANCO_DO_BRASIL) || instituicaoBancaria.equals(InstituicaoBancaria.CAIXA)) {
+            throw new ContaDigitalException("Não é possível criar contas Digitais nesta instituição.");
+        }
 
-
-    String contaDigital = TiposDeContaBancaria.CONTA_DIGITAL.getTipoDeConta() + getInstituicaoBancaria() + " " + getNumeroDeConta();
-
-    public Double consultarSaldo() {
-        return super.consultarSaldo();
-    }
-
-    @Override
-    public void depositar(Double valor) {
-        String valorFormatado = DecimalFormat.getCurrencyInstance().format(valor);
-        System.out.println(TipoTransacao.DEPOSITO.getTipoTransacao() + valorFormatado + " na " + contaDigital);
-        setSaldo(getSaldo() + valor);
     }
 
     @Override
     public void sacar(Double valor) {
-        Boolean temSaldo = valor < getSaldo();
-        String valorFormatado = DecimalFormat.getCurrencyInstance().format(valor);
-
-
         if (valor < 10) {
-            throw new ContaDigitalValorMinimoException("Operação inválida — valor mínimo para saque é de " + DecimalFormat.getCurrencyInstance().format(TiposDeContaBancaria.CONTA_DIGITAL.getValorMinimoSaque()));
-        } else if (temSaldo) {
-            System.out.println(TipoTransacao.SAQUE.getTipoTransacao() + valorFormatado + " da " + contaDigital);
-            setSaldo(getSaldo() - valor);
-            Data.getDataTransacao();
+            throw new ValorMinimoException("Transação não permitida — valor mínimo para saques é de R$ 10,00");
         } else {
-            throw new SaldoInsuficienteException("Operação inválida — Saldo insuficiente para realizar a operação");
+            super.sacar(valor);
         }
     }
 
-    @Override
-    public void transferir(Double valor, ContaBancaria contaDestino) {
-        Boolean temSaldo = valor < getSaldo();
-        if (!temSaldo) {
-            throw new SaldoInsuficienteException("Operação inválida — Saldo insuficiente para realizar a operação");
-        } else {
-            String valorFormatado = DecimalFormat.getCurrencyInstance().format(valor);
-            System.out.println(TipoTransacao.TRANSFERENCIA_PARA_MESMO_BANCO.getTipoTransacao() + valorFormatado + " da " + contaDigital + " para a " + contaDestino);
-            setSaldo(getSaldo() - valor);
-            Data.getDataTransacao();
-        }
-    }
 
-        @Override
-        public String toString () {
-            return contaDigital;
-        }
+
 }

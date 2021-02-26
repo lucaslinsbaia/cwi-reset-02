@@ -1,6 +1,6 @@
-package br.com.banco.desgraca;
+package br.com.banco.desgraca.domain;
 
-import br.com.banco.desgraca.domain.TipoTransacao;
+import br.com.banco.desgraca.Data;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;

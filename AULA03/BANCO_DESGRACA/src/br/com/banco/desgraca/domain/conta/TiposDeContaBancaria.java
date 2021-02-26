@@ -3,7 +3,7 @@ package br.com.banco.desgraca.domain.conta;
 public enum TiposDeContaBancaria {
     CONTA_DIGITAL ("Conta Digital ", 0.0, 10, 0.0, 0.0),
     CONTA_CORRENTE ("Conta Corrente ", 0.0, 5, 0.0, 0.01),
-    CONTA_POUPANCA("Conta Poupança ", 2.0,50,0.05,0.1);
+    CONTA_POUPANCA("Conta Poupança ", 0.02,50,0.005,0.01);
 
     private String tipoDeConta;
     private Double taxaSaque;

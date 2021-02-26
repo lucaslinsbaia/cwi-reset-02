@@ -2,26 +2,25 @@
 package br.com.banco.desgraca.domain;
 
 public enum TipoTransacao {
-    SAQUE ("Sacando o valor de ", true),
-    DEPOSITO("Depositando o valor de ", true),
-    PAGAMENTO ("Pagando o valor de ", true),
-    TRANSFERENCIA_PARA_OUTROS_BANCOS ("Transferindo o valor de ", true),
-    TRANSFERENCIA_PARA_MESMO_BANCO ("Transferindo o valor de ", true);
+    SAQUE ("Sacando o valor de ", " - "),
+    DEPOSITO("Depositando o valor de ", " + "),
+    TRANSFERENCIA_PARA_OUTROS_BANCOS ("Transferindo o valor de ", " - "),
+    TRANSFERENCIA_PARA_MESMO_BANCO ("Transferindo o valor de ", " - ");
 
-    Boolean executar;
+    String sinalTransacao;
     String tipoTransacao;
 
-    TipoTransacao(String tipoTransacao, Boolean executar)
+    TipoTransacao(String tipoTransacao, String sinalTransacao)
     {
         this.tipoTransacao = tipoTransacao;
-        this.executar = executar;
+        this.sinalTransacao = sinalTransacao;
     }
 
     public String getTipoTransacao() {
         return tipoTransacao;
     }
 
-    public Boolean getExecutar() {
-        return executar;
+    public String getSinalTransacao() {
+        return sinalTransacao;
     }
 }
